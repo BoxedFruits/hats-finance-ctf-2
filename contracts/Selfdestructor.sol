@@ -9,6 +9,7 @@ contract SelfDestructor {
     }
 
     function implode() payable public {
+        require(msg.value == 1 ether);
         selfdestruct(payable(target));
     }
 }
