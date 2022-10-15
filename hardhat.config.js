@@ -12,12 +12,6 @@ require("@nomiclabs/hardhat-etherscan");
 
 module.exports = {
   solidity: "0.8.12",
-  networks: {
-    rinkeby: {
-      url: `https://rinkeby.infura.io/v3/${process.env.INFURA_KEY}`,
-      accounts: [process.env.RINKEBY_PK],
-    },
-  },
   watcher: {
     compile: {
       tasks: ["compile"],
