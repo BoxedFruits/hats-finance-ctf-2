@@ -13,11 +13,7 @@ contract Vault is ERC4626ETH {
     }
 
     function captureTheFlag(address newFlagHolder) external {
-        //NOTE: Drain ETH Balance
         require(address(this).balance == 0, "Balance is not 0");
-
         flagHolder = newFlagHolder;
     }
-    //NOTE: This doesn't have a fallback or recieve()
-    //Can send using self destruct
 }
