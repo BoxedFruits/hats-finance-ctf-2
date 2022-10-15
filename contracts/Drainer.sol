@@ -12,7 +12,6 @@ contract Drainer {
     function callDeposit() payable public {
         require(msg.value == 2 ether);
         (bool res,) = target.call{value: msg.value}(abi.encodeWithSignature("deposit(uint256,address)", msg.value, address(this)));
-        emit log(res);
         require(res == true, "despoit call failed");
     }
 
