@@ -19,27 +19,27 @@ contract VaultTest is Test {
     }
 
     function testDeposit() public {
-        assertEq(Vault(vault).flagHolder(), 0x0000000000000000000000000000000000000000);
+        assertEq(vault.flagHolder(), 0x0000000000000000000000000000000000000000);
         
         vm.startPrank(msg.sender);
-        Vault(vault).deposit{value: assets}(assets, msg.sender);
+        vault.deposit{value: assets}(assets, msg.sender);
 
-        uint256 balance = Vault(vault).balanceOf(msg.sender);
+        uint256 balance = vault.balanceOf(msg.sender);
 
         vm.stopPrank();
         assertEq(balance, assets);
     }
 
     function testWithdraw() public {
-        assertEq(Vault(vault).flagHolder(), 0x0000000000000000000000000000000000000000);
+        assertEq(vault.flagHolder(), 0x0000000000000000000000000000000000000000);
 
         vm.startPrank(msg.sender);
-        Vault(vault).deposit{value: assets}(assets, msg.sender);
+        vault.deposit{value: assets}(assets, msg.sender);
 
-        uint256 balance = Vault(vault).balanceOf(msg.sender);
+        uint256 balance = vault.balanceOf(msg.sender);
         assertEq(balance, assets);
 
-        Vault(vault).withdraw(assets, msg.sender, msg.sender);
+        vault.withdraw(assets, msg.sender, msg.sender);
 
         uint256 newBalance = Vault(vault).balanceOf(msg.sender);
         assertEq(newBalance, 0);
