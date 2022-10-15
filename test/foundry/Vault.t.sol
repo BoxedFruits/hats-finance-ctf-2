@@ -43,6 +43,10 @@ contract VaultTest is Test {
 
         uint256 newBalance = Vault(vault).balanceOf(msg.sender);
         assertEq(newBalance, 0);
+
         vm.stopPrank();
+
+        address flagHolder = vault.flagHolder();
+        assertEq(flagHolder, 0x0000000000000000000000000000000000000000);
     }
 }
