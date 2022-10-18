@@ -1,3 +1,20 @@
+This is the repo for the write up for the second Hats Finance CTF - https://github.com/hats-finance/vault-game
+
+Link to full write up - https://mirror.xyz/0xB75Bd7Ef6B0942b7AEF94995e43a59CB25a1e113/wxGI2a-qIjTHt8zpJSxb5ypWr1R63qshxA-SmfCUSmI
+## How to run 
+
+### Using Forge tests
+```
+forge install
+forge test
+```
+
+### Using Hardhat tests
+```
+npm install
+npx hardhat test
+```
+
 # Hats Challenge #2
 
 ## Capture the Flag
