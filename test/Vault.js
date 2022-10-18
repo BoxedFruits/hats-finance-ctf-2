@@ -76,12 +76,6 @@ describe("Vault contract", function () {
     });
     await txSelfDestruct.wait();
 
-    //Deposit 2 eth using the drainer contract
-    const txDeposit = await drainerContract.connect(depositor).callDeposit({
-        value: ethers.utils.parseEther("2")
-    });
-    await txDeposit.wait();
-
     //Call withdraw from drainer contract to trigger code in recieve()
     const txWithdraw = await drainerContract.callWithdraw();
     await txWithdraw.wait();
